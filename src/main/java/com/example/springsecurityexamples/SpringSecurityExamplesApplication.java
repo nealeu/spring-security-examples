@@ -17,7 +17,7 @@ public class SpringSecurityExamplesApplication {
 
 	@RestController
 	@RequestMapping("/default")
-    static class Controller implements Resource {
+    static class ControllerRequestMappedToDefault implements Resource {
 
 		@GetMapping
 		@Override
@@ -27,8 +27,7 @@ public class SpringSecurityExamplesApplication {
 	}
 
 	@RestController
-
-    static class DefaultController implements Resource {
+    static class ControllerWithNoOverrides implements Resource {
 	}
 
 	@RestController
