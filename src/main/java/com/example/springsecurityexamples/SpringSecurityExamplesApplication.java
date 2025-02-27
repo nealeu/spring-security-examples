@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
@@ -49,6 +50,7 @@ public class SpringSecurityExamplesApplication {
 	@RequestMapping("/admin")
 	interface Resource {
 
+		@ResponseBody // Ooh. Without this IDEA thinks we're returning a view. What else might be missing from implementing controller?
 		@GetMapping("/")
 		@PreAuthorize("hasRole('ADMIN')")
 		default String hello() {
